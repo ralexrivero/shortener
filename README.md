@@ -17,3 +17,18 @@ This is a simple URL shortener. It uses a hash of the URL as the short URL.
 ## project
 
 - `python manage.py migrate`
+
+## graphql
+
+- add to `settings.py` the Schema for for all objects types
+
+```python
+GRAPHENE = {
+    'SCHEMA': 'shortener.schema.schema'
+}
+```
+
+## hash
+
+- using `md5` from `hashlib`
+

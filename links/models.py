@@ -1,3 +1,3 @@
 from django.db import models
+from hashlib import md5
 
-# Create your models here.
