@@ -28,6 +28,8 @@ GRAPHENE = {
 }
 ```
 
+[Graphene](https://docs.graphene-python.org/projects/django/en/latest/installation/#csrf-exempt)
+
 ## hash
 
 - using `md5` from `hashlib`
