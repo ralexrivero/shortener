@@ -16,4 +16,3 @@ class URL(models.Model):
             self.url_hash = md5(self.full_url.encode()).hexdigest()[:12]
 
         return super().save(*args, **kwargs)
-    
