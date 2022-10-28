@@ -23,6 +23,6 @@ class URL(models.Model):
         try:
             validate(self.full_url)
         except ValidationError as e:
-            raise GraphQLError('The url is invalid')
+            raise GraphQLError('invalid url')
 
         return super().save(*args, **kwargs)
