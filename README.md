@@ -1,4 +1,6 @@
-# URL shortener
+# tify.one
+
+URL shortener
 
 ## Description
 
@@ -33,4 +35,3 @@ GRAPHENE = {
 ## hash
 
 - using `md5` from `hashlib`
-
