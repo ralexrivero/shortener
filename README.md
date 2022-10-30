@@ -35,3 +35,34 @@ GRAPHENE = {
 ## hash
 
 - using `md5` from `hashlib`
+
+## create url mutation
+
+```graphene
+mutation {
+  createUrl(fullUrl:"https://google.com") {
+    url {
+      id
+      fullUrl
+      urlHash
+      clicks
+      createdAt
+    }
+  }
+}
+```
+
+## query url
+
+```graphene
+{
+  urls {
+    id
+    fullUrl
+    urlHash
+    clicks
+    createdAt
+    __typename
+  }
+}
+```
