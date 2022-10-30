@@ -6,6 +6,10 @@ URL shortener
 
 This is a simple URL shortener. It uses a hash of the URL as the short URL.
 
+https://graphql.org/
+
+https://graphene-python.org/
+
 ## docker
 
 - `docker build -t sh-py:1.0 .`
