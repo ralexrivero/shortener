@@ -1,14 +1,26 @@
 # tify.one
 
-URL shortener
+- Shortify one url
+- Shortify valid urls using sliced md5 hash
+- `tify.one/hash` shortified url to redirect
+- `tify.one` redirects to `app.tify.one`
+- `bad hash` shows `404` page
+- `app.tify.one` to access the home page and full functionality
+- `blog.tify.one` to access the blog
 
-## Description
+## Services
 
-This is a simple URL shortener. It uses a hash of the URL as the short URL.
+- Namecheap
+- DigitalOcean
+- ssl Certbot
+- ssh
+- datadog
+- nginx
 
-https://graphql.org/
+## References
 
-https://graphene-python.org/
+- [graphql](https://graphql.org/)
+- [graphene](https://graphene-python.org/)
 
 ## docker
 
