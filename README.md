@@ -1,12 +1,14 @@
 # tify.one
 
-- Shortify one url
+- Shortify one userspace
 - Shortify valid urls using sliced md5 hash
 - `tify.one/hash` shortified url to redirect
 - `tify.one` redirects to `app.tify.one`
 - `bad hash` shows `404` page
 - `app.tify.one` to access the home page and full functionality
 - `blog.tify.one` to access the blog
+- `help.tify.one`
+- `user.tify.one` the user space shotified profile and urls i.e. `user.tify.one/bio` for general profile or `user.tify.one/ig` for specific custom links
 
 ## Services
 
