@@ -3,6 +3,7 @@ from hashlib import md5
 from django.core.validators import URLValidator
 from django.core.exceptions import ValidationError
 from graphql import GraphQLError
+from django.urls import reverse
 
 
 class URL(models.Model):

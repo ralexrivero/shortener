@@ -21,7 +21,7 @@
 
 - [graphql](https://graphql.org/)
 - [graphene](https://graphene-python.org/)
-- [django-subdomains](https://django-subdomains.readthedocs.io/en/latest/)
+- [django-hosts](https://django-hosts.readthedocs.io/en/latest/)
 
 ## docker
 
