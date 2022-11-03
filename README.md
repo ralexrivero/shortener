@@ -1,6 +1,7 @@
 # tify.one
 
 - Shortify one userspace
+- tify your way
 - Shortify valid urls using sliced md5 hash
 - `tify.one/hash` shortified url to redirect
 - `tify.one` redirects to `app.tify.one`
