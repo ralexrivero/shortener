@@ -1,0 +1,14 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Fullstack Developer: Ronald Rivero
+    Site: ralexrivero@gmail.com
+    Twitter: @ralex_uy
+    Location: Montevideo, Uruguay
+
+# TECHNOLOGY COLOPHON
+    Standards: HTML5, CSS, JavaScript, Python
+    Components: Django
+    Server: Nginx
