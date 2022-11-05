@@ -8,6 +8,7 @@ def greet(request):
 def bye(request):
     return HttpResponse('Good bye!')
 
+
 def adult(request, age):
     if age >= 18:
         return HttpResponse('Your are of age')

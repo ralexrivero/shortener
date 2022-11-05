@@ -1,6 +1,7 @@
 from django.db import models
 from hashlib import md5
 
+
 class Url(models.Model):
     url_full = models.URLField(unique=True)
     url_hash = models.URLField(unique=True)
