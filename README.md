@@ -60,13 +60,13 @@ GRAPHENE = {
 
 ```graphene
 mutation {
-  createUrl(fullUrl:"https://google.com") {
+  createUrl(urlFull:"https://ralex.me") {
     url {
       id
-      fullUrl
+      urlFull
       urlHash
-      clicks
-      createdAt
+      visits
+      dateCreated
     }
   }
 }
@@ -75,13 +75,13 @@ mutation {
 ## query url
 
 ```graphene
-{
-  urls {
+query {
+  urls{
     id
-    fullUrl
+    urlFull
     urlHash
-    clicks
-    createdAt
+    visits
+    dateCreated
     __typename
   }
 }

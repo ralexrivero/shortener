@@ -14,6 +14,6 @@ class Url(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.id:
-            self.url_hash = md5(self.full_url.encode()).hexdigest()[:9]
+            self.url_hash = md5(self.url_full.encode()).hexdigest()[:9]
 
         return super().save(*args, **kwargs)
