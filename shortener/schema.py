@@ -11,10 +11,15 @@ class UrlType(DjangoObjectType):
 
 
 class Query(graphene.ObjectType):
-    urls = graphene.List(UrlType, url=graphene.String(), first=graphene.Int(), skip=graphene.Int())
+    urls = graphene.List(
+                         UrlType,
+                         url=graphene.String(),
+                         first=graphene.Int(),
+                         skip=graphene.Int()
+                         )
 
     def resolve_urls(self, info, url=None, first=None, skip=None, **kwargs):
-        queryset =  Url.objects.all()
+        queryset = Url.objects.all()
 
         if url:
             _filter = Q(url_full__icontains=url)
@@ -27,6 +32,7 @@ class Query(graphene.ObjectType):
 
         return queryset
 
+
 class CreateUrl(graphene.Mutation):
     url = graphene.Field(UrlType)
 
@@ -34,7 +40,7 @@ class CreateUrl(graphene.Mutation):
         url_full = graphene.String()
 
     def mutate(self, info, url_full):
-        url = Url(url_full = url_full)
+        url = Url(url_full=url_full)
         url.save()
 
         return CreateUrl(url=url)
