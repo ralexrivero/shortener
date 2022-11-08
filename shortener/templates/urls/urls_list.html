@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>urls list view</h1>
+    <div class="row row-cols3 g-2">
+        {% for url in urls %}
+            <div class="col">
+                <div class="p-3 border">
+                    <a class="text-dark text-decoration-none"> <strong>{{ url.url_full }}</strong>
+                        <p> {{ url.url_hash }} </p>
+                        <p> {{ url.visits }} </p>
+                        <p> {{ url.date_created }} </p>
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
