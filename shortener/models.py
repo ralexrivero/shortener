@@ -8,7 +8,7 @@ from graphql import GraphQLError
 
 class Url(models.Model):
     url_full = models.URLField(unique=True)
-    url_hash = models.URLField(unique=True)
+    url_hash = models.CharField(max_length=9, unique=True)
     visits = models.IntegerField(default=0)
     date_created = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="notes")
