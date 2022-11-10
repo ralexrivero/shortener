@@ -2,6 +2,7 @@ from django.db import models
 from hashlib import md5
 from django.core.validators import URLValidator
 from django.core.exceptions import ValidationError
+from django.contrib.auth.models import User
 from graphql import GraphQLError
 
 
@@ -10,6 +11,7 @@ class Url(models.Model):
     url_hash = models.URLField(unique=True)
     visits = models.IntegerField(default=0)
     date_created = models.DateTimeField(auto_now_add=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="notes")
 
     def visited(self):
         self.visits += 1

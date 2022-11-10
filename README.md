@@ -38,7 +38,14 @@
 
 ## project
 
+- `python manage.py makemigrations`
 - `python manage.py migrate`
+- `python manage.py runserver 0.0.0.0:8000`
+
+## create superuser
+
+- `python manage.py createsuperuser`
+- `admin.tify.one`
 
 ## graphql
 
