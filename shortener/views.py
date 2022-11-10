@@ -11,7 +11,13 @@ def root(request, url_hash):
     return redirect(url.url_full)
 
 
-class UrlsShortified(ListView):
+class UrlList(ListView):
     model = Url
     context_object_name = 'urls'
     template_name = 'urls/urls_list.html'
+
+
+class UrlDetail(DetailView):
+    model = Url
+    context_object_name = 'url'
+    template_name = 'urls/url_detail.html'

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}
+url detail:
+{% endblock%}
+
+{% block content %}
+<h1>Url detail</h1>
+<div>
+    <strong>{{ url.url_full }}</strong>
+    <p>{{ url.url_hash }}</p>
+    <p>{{ url.visits }}</p>
+    <p>{{ url.date_created }}</p>
+</div>
+{% endblock %}

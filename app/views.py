@@ -1,10 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.views.generic import TemplateView
 
-
-def home(request):
-    return HttpResponse('Hello from App')
-
-
-def signup(request):
-    return HttpResponse('Signup page!')
+class HomeView(TemplateView):
+    template_name = 'app/home.html'
