@@ -58,6 +58,7 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'tify.urls'
 ROOT_HOSTCONF = 'tify.hosts'
 DEFAULT_HOST = 'www'
+PARENT_HOST = 'localhost:8000'
 
 TEMPLATES = [
     {
