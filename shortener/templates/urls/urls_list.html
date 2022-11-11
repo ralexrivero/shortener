@@ -2,10 +2,11 @@
 {% load hosts %}
 {% block title %}Url's list{% endblock %}
 {% block content %}
-    <h1 class="my-5">urls list view</h1>
-    <div class="row row-cols3 g-2">
+<div class="container">
+    <h1 class="my-5 text-center">urls list view</h1>
+    <div class="row row-cols3 g-2 justify-content-start">
         {% for url in urls %}
-            <div class="card col">
+            <div class="card col-3 m-2">
                 <div class="card-body">
                     <h5 class="card-title"><a href="{% host_url 'url.detail' pk=url.id host 'www' %}" class="text-dark text-decoration-none">{{ url.url_full }}</a></h5>
                     <pre class="card-text"><code>tify.one/{{ url.url_hash }}</code></pre>
@@ -14,4 +15,5 @@
             </div>
         {% endfor %}
     </div>
+</div>
 {% endblock %}

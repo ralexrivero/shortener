@@ -11,7 +11,7 @@ class Url(models.Model):
     url_hash = models.CharField(max_length=9, unique=True)
     visits = models.IntegerField(default=0)
     date_created = models.DateTimeField(auto_now_add=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="notes")
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="url")
 
     def visited(self):
         self.visits += 1

@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-_2x1e#7m@$=k8xwxyfqw)(6r6&erw01)id_mnwig6wlkjn9mzn
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*']  # only for development
 
 
 # Application definition
@@ -58,7 +58,7 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'tify.urls'
 ROOT_HOSTCONF = 'tify.hosts'
 DEFAULT_HOST = 'www'
-PARENT_HOST = 'localhost:8000'
+PARENT_HOST = 'localhost:8000'  # only for development
 
 TEMPLATES = [
     {
