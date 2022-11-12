@@ -6,7 +6,7 @@ from shortener.views import root
 app_name = 'main'
 
 urlpatterns = (
-        path('graphql/', csrf_exempt(GraphQLView.as_view(graphiql=True))),  # False in production
+        path('graphql/', csrf_exempt(GraphQLView.as_view(graphiql=True))),
         path('<str:url_hash>/', root, name='root'),
         path('urls/', include('shortener.urls')),
 )
