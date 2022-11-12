@@ -3,6 +3,6 @@
 {% block content %}
 <div class="container">
     <h1>urls</h1>
-    <a href="{% host_url 'urls.list' host 'www' %}" class="btn btn-primary">Checkout your urls!</a>
+    <a href="{% host_url 'shortener:urls.list' host 'www' %}" class="btn btn-primary">Checkout your urls!</a>
 </div>
 {% endblock %}
