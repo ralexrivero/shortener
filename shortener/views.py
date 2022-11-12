@@ -24,7 +24,7 @@ class UrlCreateView(LoginRequiredMixin, CreateView):
     template_name = 'urls/url_new.html'
 
     def get_login_url(self):
-        return reverse_lazy('admin:admin:index')  # reverse the admin login url
+        return 'admin:login'
 
     def form_valid(self, form):
         self.object = form.save(commit=False)
@@ -39,7 +39,7 @@ class UrlListView(LoginRequiredMixin, ListView):
     template_name = 'urls/urls_list.html'
 
     def get_login_url(self):
-        return reverse_lazy('admin:admin:index')  # reverse the admin login url
+        return 'admin:login'
 
     def get_queryset(self):
         return Url.objects.filter(user=self.request.user)

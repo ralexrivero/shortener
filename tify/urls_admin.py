@@ -4,5 +4,5 @@ from django.urls import path
 app_name = 'admin'
 
 urlpatterns = [
-    path('', admin.site.urls,),
+    path('', admin.site.urls, name='login'),
     ]
