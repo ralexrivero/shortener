@@ -2,7 +2,9 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import get_object_or_404, redirect
 from django.views.generic import CreateView, DetailView, ListView, UpdateView
 from django.views.generic.edit import DeleteView
-from django.urls import reverse_lazy
+from django.http.response import HttpResponseRedirect
+from django.urls import reverse, reverse_lazy, re_path
+from tify import hosts
 
 from .forms import UrlsForm
 from .models import Url
@@ -15,20 +17,33 @@ def root(request, url_hash):
     return redirect(url.url_full)
 
 
-class UrlCreateView(CreateView):
+class UrlCreateView(LoginRequiredMixin, CreateView):
     model = Url
     form_class = UrlsForm
     success_url = 'urls/list'
     template_name = 'urls/url_new.html'
+
     def get_login_url(self):
-        login_url = reverse()
-        return str(login_url)
+        return reverse_lazy('admin:admin:index')  # reverse the admin login url
+
+    def form_valid(self, form):
+        self.object = form.save(commit=False)
+        self.object.user = self.request.user
+        self.object.save()
+        return HttpResponseRedirect(self.get_success_url())
+
 
 class UrlListView(LoginRequiredMixin, ListView):
     model = Url
-    context_object_name = 'urls'
+    form_class = UrlsForm
     template_name = 'urls/urls_list.html'
-    login_url = reverse_lazy('admin', urlconf='tify.urls_admin')
+
+    def get_login_url(self):
+        return reverse_lazy('admin:admin:index')  # reverse the admin login url
+
+    def get_queryset(self):
+        return Url.objects.filter(user=self.request.user)
+
 
 class UrlDetailView(DetailView):
     model = Url
