@@ -40,7 +40,7 @@ class UrlCreateView(LoginRequiredMixin, CreateView):
 
 class UrlListView(LoginRequiredMixin, ListView):
     model = Url
-    form_class = UrlsForm
+    context_object_name = 'urls'
     template_name = 'url/urls_list.html'
 
     def get_login_url(self):
@@ -48,7 +48,7 @@ class UrlListView(LoginRequiredMixin, ListView):
         return str(login_url)
 
     def get_queryset(self):
-        return Url.objects.filter(user=self.request.user)
+        return self.request.user.urls.all()
 
 
 class UrlDetailView(DetailView):
