@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}Signup for awesome urls and userspace!{% endblock %}
+{% block content %}
+<div class="container">
+    <form method='POST'>{% csrf_token %}
+        {{ form.as_p }}
+        <input class="btn btn-secondary" type='Submit' name='Submit'/>
+    </form>
+</div>
+{% endblock %}

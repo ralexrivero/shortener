@@ -1,7 +1,9 @@
-from django.shortcuts import render
-from django.http import HttpResponse
 from django.views.generic import TemplateView
+from django.views.generic.edit import CreateView
 from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth.forms import UserCreationForm
+from django.shortcuts import redirect
+from django.urls import reverse
 
 
 class HomeView(TemplateView):
@@ -14,3 +16,14 @@ class LoginInterfaceView(LoginView):
 
 class LogoutView(LogoutView):
     template_name = 'app/logout.html'
+
+
+class SignupView(CreateView):
+    form_class = UserCreationForm
+    template_name = 'app/signup.html'
+    success_url = '/'
+
+    def get(self, request, *args, **kwargs):
+        if self.request.user.is_authenticated:
+            return redirect('home', permanent=True, *args, **kwargs)
+        return super().get(request, *args, **kwargs)
