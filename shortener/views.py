@@ -3,7 +3,7 @@ from django.shortcuts import get_object_or_404, redirect
 from django.views.generic import CreateView, DetailView, ListView, UpdateView, TemplateView
 from django.views.generic.edit import DeleteView
 from django.http.response import HttpResponseRedirect
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 
 from .forms import UrlsForm
 from .models import Url
@@ -28,7 +28,7 @@ class UrlCreateView(LoginRequiredMixin, CreateView):
     template_name = 'url/url_form.html'
 
     def get_login_url(self):
-        login_url = 'http://admin.localhost:8000'
+        login_url = 'http://app.localhost:8000/login/'
         return str(login_url)
 
     def form_valid(self, form):
@@ -44,8 +44,7 @@ class UrlListView(LoginRequiredMixin, ListView):
     template_name = 'url/urls_list.html'
 
     def get_login_url(self):
-        login_url = 'http://admin.localhost:8000'
-        return str(login_url)
+        return '//app.localhost:8000/login/'
 
     def get_queryset(self):
         return self.request.user.urls.all()

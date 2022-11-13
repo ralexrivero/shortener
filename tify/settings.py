@@ -142,3 +142,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 GRAPHENE = {
     "SCHEMA": "tify.schema.schema",
 }
+
+LOGIN_REDIRECT_URL = reverse_lazy('home', host='app')
