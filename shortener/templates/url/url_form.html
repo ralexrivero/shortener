@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load hosts %}
+{% block title %}Create a new awesome shortified url{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <form method='POST'>{% csrf_token %}
+                {{ form.as_p }}
+                <h6 class="card-subtitle mb-2 text-muted">tify.one/{{ url.url_hash }}</h6>
+                <div class="card">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">visits: {{ url.visits }}</li>
+                        <li class="list-group-item">created: {{ url.date_created }}</li>
+                    </ul>
+                </div>
+                <button type"submit" class="btn btn-primary my-5">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
