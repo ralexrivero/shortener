@@ -26,7 +26,15 @@ class UrlCreateView(LoginRequiredMixin, CreateView):
     form_class = UrlsForm
     success_url = 'urls/list'
     template_name = 'urls/url_new.html'
-    login_url = reverse('admin:login')
+
+    def get_login_url(self):
+        login_url = 'http://admin.localhost:8000'
+        return str(login_url)
+
+    def get_login_url(self):
+        login_url = reverse('admin:login', host='admin')
+        return str(login_url)
+
 
     def form_valid(self, form):
         self.object = form.save(commit=False)
@@ -39,6 +47,10 @@ class UrlListView(LoginRequiredMixin, ListView):
     model = Url
     form_class = UrlsForm
     template_name = 'urls/urls_list.html'
+
+    def get_login_url(self):
+        login_url = 'http://admin.localhost:8000'
+        return str(login_url)
 
     def get_queryset(self):
         return Url.objects.filter(user=self.request.user)
