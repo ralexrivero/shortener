@@ -1,10 +1,11 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import get_object_or_404, redirect
-from django.views.generic import CreateView, DetailView, ListView, UpdateView
+from django.views.generic import CreateView, DetailView, ListView, UpdateView, TemplateView
 from django.views.generic.edit import DeleteView
 from django.http.response import HttpResponseRedirect
-from django.urls import reverse, reverse_lazy, re_path
-from tify import hosts
+from django.urls import reverse_lazy
+from django_hosts.resolvers import reverse
+
 
 from .forms import UrlsForm
 from .models import Url
@@ -16,6 +17,10 @@ def root(request, url_hash):
 
     return redirect(url.url_full)
 
+
+class RedirectHome(TemplateView):
+    def redirect_home():
+        return redirect(reverse('home', host='app'))
 
 class UrlCreateView(LoginRequiredMixin, CreateView):
     model = Url
