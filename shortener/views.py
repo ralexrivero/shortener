@@ -22,6 +22,7 @@ class RedirectHome(TemplateView):
     def redirect_home():
         return redirect(reverse('home', host='app'))
 
+
 class UrlCreateView(LoginRequiredMixin, CreateView):
     model = Url
     form_class = UrlsForm
