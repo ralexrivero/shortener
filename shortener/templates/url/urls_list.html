@@ -1,18 +1,20 @@
 {% extends 'base.html' %}
 {% load hosts %}
-{% block title %}Url's list{% endblock %}
+{% block title %}My urls{% endblock %}
 {% block content %}
 <div class="container">
-    <h1 class="my-5 text-center">urls list view</h1>
-    <div class="row row-cols3 g-2 justify-content-start">
+    <h1 class="my-5 text-center">My urls</h1>
+    <div class="row">
         {% for url in urls %}
-            <div class="card col-3 m-2">
+        <div class="col-sm-4">
+            <div class="card text-bg-light mb-3 text-center">
                 <div class="card-body">
-                    <h5 class="card-title"><a href="{% host_url 'url.detail' pk=url.id host 'www' %}" class="text-dark text-decoration-none">{{ url.url_full }}</a></h5>
+                    <h5 class="card-title"><a href="{% host_url 'shortener:url.detail' pk=url.id host 'www' %}" class="text-dark text-decoration-none">{{ url.url_full }}</a></h5>
                     <pre class="card-text"><code>tify.one/{{ url.url_hash }}</code></pre>
                     <p> {{ url.visits }} </p>
                 </div>
             </div>
+        </div>
         {% endfor %}
     </div>
 </div>

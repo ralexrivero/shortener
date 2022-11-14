@@ -1,8 +1,19 @@
 {% extends 'base.html' %}
+{% load hosts %}
 {% block title %}delete shortified url{% endblock %}
 {% block content %}
-<form method='post'>{% csrf_token %}
-    <p>Are you sure you want to delete {{ url.url_full }} shortified as tify.one/{{ url.url_hash }} ?</p>
-    <p>This action can't be undone</p>
-    <input type="submit" class="btn btn-danger" value="confirm"/>
+<div class="container">
+    <div class="card text-center">
+        <img src="" class="card=img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Delete url</h5>
+            <form method='post'>{% csrf_token %}
+                <p class="card-text">Are you sure you want to delete <strong>{{ url.url_full }}</strong> shortified as <strong>tify.one/{{ url.url_hash }}</strong>?</p>
+                <p>This action can't be undone</p>
+                <a href="{% host_url 'shortener:url.detail' pk=url.id host 'www' %}" class="btn btn-secondary">cancel</a>
+                <input type="submit" class="btn btn-danger" value="confirm"/>
+            </form>
+        </div>
+    </div>
+</div>
 {% endblock %}

@@ -22,14 +22,11 @@ class RedirectHome(TemplateView):
 
 
 class UrlCreateView(LoginRequiredMixin, CreateView):
+    # class UrlCreateView(LoginRequiredMixin, CreateView):
     model = Url
     success_url = 'urls/list'
     form_class = UrlsForm
     template_name = 'url/url_form.html'
-
-    def get_login_url(self):
-        login_url = 'http://app.localhost:8000/login/'
-        return str(login_url)
 
     def form_valid(self, form):
         self.object = form.save(commit=False)
@@ -37,17 +34,23 @@ class UrlCreateView(LoginRequiredMixin, CreateView):
         self.object.save()
         return HttpResponseRedirect(self.get_success_url())
 
+        """ def get_login_url(self):
+            login_url = 'http://app.localhost:8000/login/'
+            return str(login_url) """
 
-class UrlListView(LoginRequiredMixin, ListView):
+
+class UrlListView(ListView):
+    # class UrlListView(LoginRequiredMixin, ListView):
     model = Url
     context_object_name = 'urls'
     template_name = 'url/urls_list.html'
 
-    def get_login_url(self):
+
+"""     def get_login_url(self):
         return '//app.localhost:8000/login/'
 
     def get_queryset(self):
-        return self.request.user.urls.all()
+        return self.request.user.urls.all() """
 
 
 class UrlDetailView(DetailView):

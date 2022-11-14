@@ -1,19 +1,31 @@
 {% extends 'base.html' %}
 {% load hosts %}
-{% block title %}url detail of {{ url.url_full | truncatechars:24 }}{% endblock%}
+{% block title %}Detail of {{ url.url_full | truncatechars:24 }}{% endblock%}
 
 {% block content %}
 <div class="container">
     <h1>Url detail</h1>
-    <div class="card">
-        <div class="card-body">
-            <h5 class="card-title">{{ url.url_full }}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">tify.one/{{ url.url_hash }}</h6>
-            <div class="card">
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">visits: {{ url.visits }}</li>
-                    <li class="list-group-item">created: {{ url.date_created }}</li>
-                </ul>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card text-center">
+                <img src="" class="card-img-top" alt="">
+                <div class="card-header">
+                    <a href="{{ url.url_full }}" target="_blank">{{ url.url_full }}</a>
+                </div>
+                <div class="card-body">
+                    <h6 class="card-title">tify.one/{{ url.url_hash }}</h6>
+                    <div class="card">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">visits: {{ url.visits }}</li>
+                            <li class="list-group-item">created: {{ url.date_created }}</li>
+                        </ul>
+                    </div>
+                    <div class="container my-3">
+                        <a href="{% host_url 'shortener:urls.list' host 'www' %}" class="btn btn-secondary">back</a>
+                        <a href="{% host_url 'shortener:url.update' pk=url.id host 'www' %}" class="btn btn-primary">edit</a>
+                        <a href="{% host_url 'shortener:url.delete' pk=url.id host 'www' %}" class="btn btn-danger">delete</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

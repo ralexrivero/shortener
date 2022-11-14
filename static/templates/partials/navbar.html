@@ -7,6 +7,7 @@
     <a href="{% host_url 'shortener:url.new' host 'www' %}" class="btn btn-outline-light me-1">create</a>
     <a href="{% host_url 'logout' host 'app' %}" class="btn btn-outline-light me-1">logout</a>
     {% else %}
+    <a href="{% host_url 'home' host 'app' %}" class="btn btn-outline-light me-1">home</a>
     <a href="{% host_url 'login' host 'app' %}" class="btn btn-outline-light me-1">login</a>
     <a href="{% host_url 'signup' host 'app' %}" class="btn btn-outline-light me-1">signup</a>
     {% endif %}
