@@ -1,15 +1,42 @@
 {% load static %}
 {% load hosts %}
-<nav class="navbar navbar-dark bg-dark">
-    <div class="ms-auto">
-    {% if user.is_authenticated %}
-    <a href="{% host_url 'home' host 'app' %}" class="btn btn-outline-light me-1">home</a>
-    <a href="{% host_url 'shortener:url.new' host 'www' %}" class="btn btn-outline-light me-1">create</a>
-    <a href="{% host_url 'logout' host 'app' %}" class="btn btn-outline-light me-1">logout</a>
-    {% else %}
-    <a href="{% host_url 'home' host 'app' %}" class="btn btn-outline-light me-1">home</a>
-    <a href="{% host_url 'login' host 'app' %}" class="btn btn-outline-light me-1">login</a>
-    <a href="{% host_url 'signup' host 'app' %}" class="btn btn-outline-light me-1">signup</a>
-    {% endif %}
-    <div/>
-</nav>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Offcanvas navbar large">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% host_url 'home' host 'app' %}">tify.one</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar2" aria-controls="offcanvasNavbar2">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasNavbar2" aria-labelledby="offcanvasNavbar2Label">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasNavbar2Label">tify.one</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% host_url 'home' host 'app' %}">Home</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="{% host_url 'shortener:url.new' host 'www' %}">create</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="{% host_url 'logout' host 'app' %}">logout</a>
+              </li>
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% host_url 'home' host 'app' %}">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% host_url 'login' host 'app' %}">login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% host_url 'signup' host 'app' %}">signup</a>
+            </li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>

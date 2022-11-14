@@ -34,9 +34,9 @@ class UrlCreateView(LoginRequiredMixin, CreateView):
         self.object.save()
         return HttpResponseRedirect(self.get_success_url())
 
-        """ def get_login_url(self):
-            login_url = 'http://app.localhost:8000/login/'
-            return str(login_url) """
+    def get_login_url(self):
+        login_url = 'http://app.localhost:8000/login/'
+        return str(login_url)
 
 
 class UrlListView(ListView):
