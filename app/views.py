@@ -3,7 +3,6 @@ from django.views.generic.edit import CreateView
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import redirect
-from django.urls import reverse
 
 
 class HomeView(TemplateView):
