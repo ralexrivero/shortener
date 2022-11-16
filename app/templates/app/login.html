@@ -1,15 +1,20 @@
 {% extends 'base.html' %}
+{% load widget_tweaks %}
+
 {% block title %}Sign in to join us{% endblock %}
 {% block content %}
+
 <div class="container">
-    <main class="form-signin w-100 m-auto">
-        <form method='POST'>{% csrf_token %}
-            <div class="form-floating">
-            {{ form}}
+        <form method='POST' novalidate>{% csrf_token %}
+            {{ form.errors }}
+            {% for field in form %}
+            <div class="mb-3">
+                {{ field|add_label_class:"form-label"}}
+                {{ field|add_class:"form-control"}}
             </div>
-            <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-            <p class="mt-5 mb-3 text-muted">&copy; tify.one 2022</p>
+            {% endfor %}
+            <button class="btn btn-primary" type="submit">Sign in</button>
         </form>
-    </main>
 </div>
+
 {% endblock %}

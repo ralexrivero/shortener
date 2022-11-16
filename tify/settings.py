@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'graphene_django',
     'app',
     'shortener',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [

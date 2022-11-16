@@ -51,7 +51,6 @@
   - [ ] legal
   - [ ] custom
 
-
 - [] #1: As a user, I want to be able to create a new account
 - [] #2: As a user, I want to be able to login
 - [] #3: As a user, I want to be able to logout
@@ -61,12 +60,9 @@
 - [] #7: As a user, I want to be able to update my url
 - [] #8: As a user, I want to be able to delete my url
 
+## Sprint Backlog
 
-
-# Sprint Backlog
-
-
-## user stories
+### user stories
 
 - [ ] as a user i want to be able to creat a short url
 - [ ] as a user i want to be able to see the short url
@@ -79,7 +75,6 @@
 
 - [ ] as a user i want to be able to manage my profile
 
-
 ## tasks
 
 - [ ] create a model for the url
@@ -91,18 +86,27 @@
 - [ ] create a serializer for the url
 - [ ] create a model for the url
 
+## Sprints
 
+### Sprint 1
 
-# Sprint 1
+- MVP
+  - Create a short url, see urls, see details, update and delete urls
+  - Redirect to the long url using the hash
 
-## user stories
+#### user stories sprint 1
 
-# Sprint 2
+- [x] as a user i want to be able to creat a short url
+- [x] as a user i want to be able to use CRUD operations on my urls
 
-## user stories
+### Sprint 2
 
-- implement images: `pip install pillow` to handle images
-- in the template, add a form to upload an image
-- `<form enctype="multiple/form-data' method='POST'>`
-- in the view, add a method to handle the image using `request.FILES`
-- in the model, add a field to store the image
+- [ ] as a user i want to be able to signup and signin
+
+#### user stories sprint 2
+
+- [ ] implement images: `pip install pillow` to handle images
+- [ ] in the template, add a form to upload an image
+- [ ] `<form enctype="multiple/form-data' method='POST'>`
+- [ ] in the view, add a method to handle the image using `request.FILES`
+- [ ] in the model, add a field to store the image
