@@ -5,7 +5,7 @@
 {% block content %}
 
 <div class="container">
-        <form method='POST' novalidate>{% csrf_token %}
+        <form method='POST'>{% csrf_token %}
             {{ form.errors }}
             {% for field in form %}
             <div class="mb-3">

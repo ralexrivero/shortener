@@ -1,9 +1,17 @@
 {% extends 'base.html' %}
+{% load widget_tweaks%}
 {% block title %}Signup for awesome urls and userspace!{% endblock %}
 {% block content %}
 <div class="container">
     <form method='POST'>{% csrf_token %}
-        {{ form.as_p }}
+        {{ form.errors }}
+        {% for field in form %}
+        <div class="mb-3">
+            {{ field|add_label_class:"form-label"}}
+            {{ field|add_class:"form-control"}}
+            {{ field.help_text }}
+        </div>
+        {% endfor %}
         <input class="btn btn-secondary" type='Submit' name='Submit'/>
     </form>
 </div>
