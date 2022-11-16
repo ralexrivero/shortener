@@ -93,11 +93,13 @@
 - MVP
   - Create a short url, see urls, see details, update and delete urls
   - Redirect to the long url using the hash
+  - style forms using bootstrap and render using django-widget-tweaks
 
 #### user stories sprint 1
 
 - [x] as a user i want to be able to creat a short url
 - [x] as a user i want to be able to use CRUD operations on my urls
+
 
 ### Sprint 2
 
