@@ -2,7 +2,6 @@ from django.views.generic import TemplateView
 from django.views.generic.edit import CreateView
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.forms import UserCreationForm
-from django_hosts.resolvers import reverse
 from django.shortcuts import redirect
 
 

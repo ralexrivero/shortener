@@ -3,7 +3,6 @@ from django.views.decorators.csrf import csrf_exempt
 from graphene_django.views import GraphQLView
 from app.views import HomeView
 
-
 from shortener.views import root
 
 app_name = 'main'
@@ -13,6 +12,4 @@ urlpatterns = (
         path('<str:url_hash>/', root, name='root'),
         path('urls/', include('shortener.urls')),
         path('', HomeView.as_view()),
-        # path('', RedirectHomeView.as_view()),
-        # path('', RedirectHomeView.as_view(url='')),
 )

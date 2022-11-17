@@ -28,7 +28,7 @@ class UrlCreateView(LoginRequiredMixin, CreateView):
         return HttpResponseRedirect(self.get_success_url())
 
     def get_login_url(self):
-        login_url = 'http://app.localhost:8000/login/'
+        login_url = '//app.localtest.me:8000/login/'
         return str(login_url)
 
 
@@ -39,7 +39,7 @@ class UrlListView(LoginRequiredMixin, ListView):
 
 
     def get_login_url(self):
-        return '//app.localhost:8000/login/'
+        return '//app.localtest.me:8000/login/'
 
     def get_queryset(self):
         return self.request.user.urls.all()

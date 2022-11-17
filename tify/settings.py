@@ -60,7 +60,10 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'tify.urls'
 ROOT_HOSTCONF = 'tify.hosts'
 DEFAULT_HOST = 'www'
-PARENT_HOST = 'localhost:8000'  # only for development
+PARENT_HOST = 'localtest.me:8000'  # only for development
+
+SESSION_COOKIE_DOMAIN = ".localtest.me"
+
 
 TEMPLATES = [
     {

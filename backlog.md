@@ -50,6 +50,8 @@
   - [ ] support
   - [ ] legal
   - [ ] custom
+- [ ] Redirections
+  - [ ] when visit tify.one redirect to app.tify.one
 
 - [] #1: As a user, I want to be able to create a new account
 - [] #2: As a user, I want to be able to login
@@ -59,6 +61,12 @@
 - [] #6: As a user, I want to be able to see my url details
 - [] #7: As a user, I want to be able to update my url
 - [] #8: As a user, I want to be able to delete my url
+
+- [ ] implement images: `pip install pillow` to handle images
+- [ ] in the template, add a form to upload an image
+- [ ] `<form enctype="multiple/form-data' method='POST'>`
+- [ ] in the view, add a method to handle the image using `request.FILES`
+- [ ] in the model, add a field to store the image
 
 ## Sprint Backlog
 
@@ -94,21 +102,20 @@
   - Create a short url, see urls, see details, update and delete urls
   - Redirect to the long url using the hash
   - style forms using bootstrap and render using django-widget-tweaks
+  - basic menu and layout
+  - CRUD operations
+  - Opengraph redirection
 
 #### user stories sprint 1
 
 - [x] as a user i want to be able to creat a short url
 - [x] as a user i want to be able to use CRUD operations on my urls
 
-
 ### Sprint 2
 
-- [ ] as a user i want to be able to signup and signin
+- [ ] implement user authentication
+- [ ] apply authentication to views
 
 #### user stories sprint 2
 
-- [ ] implement images: `pip install pillow` to handle images
-- [ ] in the template, add a form to upload an image
-- [ ] `<form enctype="multiple/form-data' method='POST'>`
-- [ ] in the view, add a method to handle the image using `request.FILES`
-- [ ] in the model, add a field to store the image
+- [ ] as a user i want to be able to signup and signin
