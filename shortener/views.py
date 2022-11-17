@@ -3,7 +3,6 @@ from django.shortcuts import get_object_or_404, redirect
 from django.views.generic import CreateView, DetailView, ListView, UpdateView, TemplateView
 from django.views.generic.edit import DeleteView
 from django.http.response import HttpResponseRedirect
-from django.urls import reverse, reverse_lazy
 
 from .forms import UrlsForm
 from .models import Url
@@ -16,13 +15,7 @@ def root(request, url_hash):
     return redirect(url.url_full)
 
 
-class RedirectHome(TemplateView):
-    def redirect_home():
-        return redirect(reverse('home', host='app'))
-
-
 class UrlCreateView(LoginRequiredMixin, CreateView):
-    # class UrlCreateView(LoginRequiredMixin, CreateView):
     model = Url
     success_url = 'urls/list'
     form_class = UrlsForm
@@ -39,18 +32,17 @@ class UrlCreateView(LoginRequiredMixin, CreateView):
         return str(login_url)
 
 
-class UrlListView(ListView):
-    # class UrlListView(LoginRequiredMixin, ListView):
+class UrlListView(LoginRequiredMixin, ListView):
     model = Url
     context_object_name = 'urls'
     template_name = 'url/urls_list.html'
 
 
-"""     def get_login_url(self):
+    def get_login_url(self):
         return '//app.localhost:8000/login/'
 
     def get_queryset(self):
-        return self.request.user.urls.all() """
+        return self.request.user.urls.all()
 
 
 class UrlDetailView(DetailView):
