@@ -124,3 +124,4 @@
 
 - [x] implement postgres
 - [x] create compose build
+- [ ] create production and development server with gunicorn and nginx
