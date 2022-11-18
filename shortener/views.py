@@ -37,7 +37,6 @@ class UrlListView(LoginRequiredMixin, ListView):
     context_object_name = 'urls'
     template_name = 'url/urls_list.html'
 
-
     def get_login_url(self):
         return '//app.localtest.me:8000/login/'
 
