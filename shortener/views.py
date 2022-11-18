@@ -42,7 +42,7 @@ class UrlListView(LoginRequiredMixin, ListView):
         return '//app.localtest.me:8000/login/'
 
     def get_queryset(self):
-        return self.request.user.urls.all()
+        return self.request.user.url.all()
 
 
 class UrlDetailView(DetailView):
@@ -53,12 +53,12 @@ class UrlDetailView(DetailView):
 
 class UrlUpdateView(UpdateView):
     model = Url
-    success_url = 'urls/list'
+    success_url = '/urls/list'
     form_class = UrlsForm
     template_name = 'url/url_form.html'
 
 
 class UrlDeleteView(DeleteView):
     model = Url
-    success_url = 'urls/list'
+    success_url = '/urls/list'
     template_name = 'url/url_delete.html'
