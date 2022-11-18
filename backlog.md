@@ -113,9 +113,14 @@
 
 ### Sprint 2
 
-- [ ] implement user authentication
-- [ ] apply authentication to views
+- [x] implement user authentication
+- [x] apply authentication to views
 
 #### user stories sprint 2
 
-- [ ] as a user i want to be able to signup and signin
+- [x] as a user i want to be able to signup and signin
+
+### Sprint 3
+
+- [x] implement postgres
+- [x] create compose build

@@ -17,7 +17,7 @@ def root(request, url_hash):
 
 class UrlCreateView(LoginRequiredMixin, CreateView):
     model = Url
-    success_url = 'urls/list'
+    success_url = '/urls/list'
     form_class = UrlsForm
     template_name = 'url/url_form.html'
 
