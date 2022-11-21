@@ -112,3 +112,17 @@ query {
 - `docker compose -f docker-compose.prod.yaml down -v`
 - `docker compose -f docker-compose.prod.yaml up -d --build`
 - `docker compose -f docker-compose.prod.yaml exec web python manage.py migrate --noinput`
+
+- `docker compose logs -f`
+
+- `docker compose exec web python manage.py flush --no-input`
+- `docker compose exec web python manage.py migrate`
+
+### build and run the production environment
+
+- `docker compose -f docker-compose.prod.yaml up -d --build`
+- `docker compose -f docker-compose.prod.yaml exec web python manage.py migrate --noinput`
+
+- `docker compose -f docker-compose.prod.yaml down -v`
+- `docker compose -f docker-compose.prod.yaml up -d --build`
+- `docker compose -f docker-compose.prod.yaml exec web python manage.py migrate --noinput`

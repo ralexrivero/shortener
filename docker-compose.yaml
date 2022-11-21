@@ -1,21 +1,45 @@
+version: '3.9'
+
 services:
   web:
-    build: ./Dockerfiles/python
-    command: python manage.py runserver 0.0.0.0:8000
+    build: .
     volumes:
-      - .:/code
-    ports:
-      - "8000:8000"
+      - .:/usr/src/code
+    networks:
+      - nginx_network
+      - postgres_network
+    depends_on:
+      - db_postgres
     env_file:
       - ./.env.dev
-    depends_on:
-      - db
-  db:
-    build: ./Dockerfiles/postgres
+    command: gunicorn tify.wsgi:application --bind 0.0.0.0:8000
+  nginx:
+    build:
+      context: ./Dockerfiles/nginx
+      dockerfile: Dockerfile
+    ports:
+      - 8000:80
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - ./config/nginx/conf.d:/etc/nginx/conf.d
+    depends_on:
+      - web
+    networks:
+      - nginx_network
+  db_postgres:
+    build:
+      context: ./Dockerfiles/postgres
+      dockerfile: Dockerfile
     env_file:
       - ./.env.dev.db
+    networks:
+      - postgres_network
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
 
+networks:
+  nginx_network:
+    driver: bridge
+  postgres_network:
+    driver: bridge
 volumes:
   postgres_data:
