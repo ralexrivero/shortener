@@ -2,24 +2,22 @@
 version: '3.8'
 
 services:
+  web:
+    build:
+      context: ./
+      dockerfile: ./Dockerfiles/python/Dockerfile.prod
+    command: gunicorn tify-web.wsgi:application --bind 0.0.0.0:8000
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./.env.prod
+    depends_on:
+      - db
   db:
     build: ./Dockerfiles/postgres
     volumes:
-      - ./data/db:/var/lib/postgresql/data
-    environment:
-      - POSTGRES_DB=postgres
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-  web:
-    build: ./Dockerfiles/python
-    command: gunicorn 
-    volumes:
-      - .:/code
-    ports:
-      - "8000:8000"
-    environment:
-      - POSTGRES_NAME=postgres
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-    depends_on:
-      - db
+      - postgres_data:/var/lib/postgresql/data
+    env_file:
+      - ./.env.prod.db
+volumes:
+  postgres_data:

@@ -93,3 +93,22 @@ query {
   }
 }
 ```
+
+## Docker compose for development
+
+- `docker compose up -d --build`
+- if fails
+- `docker compose down -v`
+- `docker compose exec web python manage.py migrate --noinput`
+- `docker compose exec web python manage.py migrate`
+- `docker compose exec db psql --username=postgres --dbname=postgres_dev`
+- `docker volume inspect tifyone_postgres_data`
+- `chmod +x entrypoint.sh`
+
+## Docker compose production
+
+- `docker compose -f docker-compose.prod.yaml up -d --build`
+
+- `docker compose -f docker-compose.prod.yaml down -v`
+- `docker compose -f docker-compose.prod.yaml up -d --build`
+- `docker compose -f docker-compose.prod.yaml exec web python manage.py migrate --noinput`
