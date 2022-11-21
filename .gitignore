@@ -3,7 +3,7 @@ __pycache__/
 env/
 data/
 db.sqlite3
-
+data.json
 
 # temporal files in vim
 *.swp
