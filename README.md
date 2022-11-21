@@ -126,3 +126,6 @@ query {
 - `docker compose -f docker-compose.prod.yaml down -v`
 - `docker compose -f docker-compose.prod.yaml up -d --build`
 - `docker compose -f docker-compose.prod.yaml exec web python manage.py migrate --noinput`
+
+manage.py migrate
+manage.py collectstatic --no-input

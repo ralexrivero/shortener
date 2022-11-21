@@ -3,26 +3,30 @@ version: '3.9'
 services:
   web:
     build: .
-    volumes:
-      - .:/usr/src/code
-    networks:
-      - nginx_network
-      - postgres_network
     depends_on:
       - db_postgres
+    volumes:
+      - .:/usr/src/code
+      - static_volume:/usr/src/code/static
+      - media_volume:/usr/src/code/media
     env_file:
       - ./.env.dev
     command: gunicorn tify.wsgi:application --bind 0.0.0.0:8000
+    networks:
+      - nginx_network
+      - postgres_network
   nginx:
     build:
       context: ./Dockerfiles/nginx
       dockerfile: Dockerfile
     ports:
       - 8000:80
-    volumes:
-      - ./config/nginx/conf.d:/etc/nginx/conf.d
     depends_on:
       - web
+    volumes:
+      - ./config/nginx/conf.d:/etc/nginx/conf.d
+      - static_volume:/usr/src/code/static
+      - media_volume:/usr/src/code/media
     networks:
       - nginx_network
   db_postgres:
@@ -31,11 +35,10 @@ services:
       dockerfile: Dockerfile
     env_file:
       - ./.env.dev.db
-    networks:
-      - postgres_network
     volumes:
       - postgres_data:/var/lib/postgresql/data
-
+    networks:
+      - postgres_network
 networks:
   nginx_network:
     driver: bridge
@@ -43,3 +46,5 @@ networks:
     driver: bridge
 volumes:
   postgres_data:
+  static_volume:
+  media_volume:
