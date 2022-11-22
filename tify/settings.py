@@ -17,21 +17,16 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = 'django-insecure-_2x1e#7m@$=k8xwxyfqw)(6r6&erw01)id_mnwig6wlkjn9mzn'
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
 DEBUG = int(os.environ.get('DEBUG', default=0))
 
-# ALLOWED_HOSTS = ['*']
 ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS").split(" ")
-
 
 # Application definition
 
@@ -64,7 +59,7 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'tify.urls'
 ROOT_HOSTCONF = 'tify.hosts'
 DEFAULT_HOST = 'www'
-PARENT_HOST = 'localtest.me:8000'  # only for development
+PARENT_HOST = 'localtest.me:8000'
 
 SESSION_COOKIE_DOMAIN = ".localtest.me"
 
@@ -92,17 +87,6 @@ WSGI_APPLICATION = 'tify.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-""" DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('POSTGRES_NAME'),
-        'USER': os.environ.get('POSTGRES_USER'),
-        'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
-        'HOST': 'db',
-        'PORT': 5432,
-    }
-} """
 
 DATABASES = {
     "default": {
@@ -149,19 +133,15 @@ USE_L10N = True
 
 USE_TZ = True
 
-# as declared in NginX conf, it must match /opt/services/djangoapp/static/
-STATIC_ROOT = os.path.join(os.path.dirname(os.path.dirname(BASE_DIR)), 'src/static')
-
-# do the same for media files, it must match /opt/services/djangoapp/media/
-MEDIA_ROOT = os.path.join(os.path.dirname(os.path.dirname(BASE_DIR)), 'src/media')
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
+
+STATIC_ROOT = os.path.join(os.path.dirname(os.path.dirname(BASE_DIR)), 'src/code/static')
+MEDIA_ROOT = os.path.join(os.path.dirname(os.path.dirname(BASE_DIR)), 'src/code/media')
+
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    BASE_DIR / 'static'
-]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
