@@ -129,3 +129,34 @@ query {
 
 manage.py migrate
 manage.py collectstatic --no-input
+
+```nginx
+upstream web_server {
+    # docker will automatically resolve this to the correct address
+    # because we use the same name as the service: "web"
+    server web:8000;
+}
+
+# declare main server NGINX
+
+
+server {
+
+    listen 80;
+    server_name localhost;
+
+    location / {
+        # everything is passed to Gunicorn
+        proxy_pass http://web_server;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header Host $host;
+        proxy_redirect off;
+    }
+    location /static/ {
+        alias /usr/src/code/static/;
+    }
+    location /media/ {
+        alias /usr/src/code/media/;
+    }
+}
+```
