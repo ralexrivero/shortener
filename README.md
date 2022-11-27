@@ -34,6 +34,8 @@
 <!-- Kubernetes -->
 <!-- Gunicorn -->
 <!-- Postgres -->
+<!-- ssh -->
+<!-- ufw -->
 
 ## Services
 
