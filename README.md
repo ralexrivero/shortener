@@ -37,6 +37,8 @@
 <!-- ssh -->
 <!-- ufw -->
 
+- Development environment with Docker and Docker Compose
+
 ## Services
 
 - Namecheap
@@ -186,6 +188,19 @@ server {
     }
 }
 ```
+
+## Deploy
+
+- [ ] Kubernetes cluster
+- [ ] kubectl
+- [ ] domain name
+- [ ] ingres-nginx
+- [ ] DNS record A
+- [ ] storage object
+- [ ] Django app
+- [ ] Postgres database
+- [ ] Docker hub
+- [ ] Docker engine
 
 ## kubernetes
 
